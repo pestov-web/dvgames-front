@@ -25,7 +25,10 @@ const handleLogout = () => {
         /></a>
       </div>
       <nav>
-        <ul class="flex gap-2">
+        <ul class="flex gap-4">
+          <li>
+            <NuxtLink to="/" class="bg-blend-color-burn">Главная</NuxtLink>
+          </li>
           <li
             v-for="category in categories.data"
             :key="category.attributes.slug"
