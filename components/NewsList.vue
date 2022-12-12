@@ -10,7 +10,7 @@ const props = defineProps({
   <div class="pb-[100px]">
     <h2 class="news__title">Новости</h2>
     <ul class="news__list">
-      <li v-for="article in news.data.reverse()" class="news__card">
+      <li v-for="article in news.data" class="news__card">
         <NuxtLink :to="`/article/${article.id}`" class="news__card-link">
           <nuxt-img
             provider="strapi"
