@@ -8,10 +8,16 @@ const {
 } = await useAsyncData("articles", () =>
   find("articles", { populate: ["image", "categories"] })
 );
+const { data: events } = await useAsyncData("events", () =>
+  find("events", { populate: "logo" })
+);
 </script>
 
 <template>
-  <div><NewsList :news="news" /></div>
+  <div class="flex">
+    <NewsList :news="news" />
+    <EventsList :events="events" />
+  </div>
 </template>
 
 <style scoped></style>
