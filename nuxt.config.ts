@@ -1,10 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
+  },
   modules: [
     "@nuxtjs/strapi",
     "@nuxtjs/tailwindcss",
     "@nuxt/image-edge",
     "nuxt-icon",
+    "nuxt-headlessui",
   ],
   // uncomment before deploy
   // runtimeConfig: {
@@ -20,13 +24,22 @@ export default defineNuxtConfig({
   //   },
   // },
   strapi: {
-    // comment before deploy =)
+    // comment before deploy
     url: process.env.API_URL || "http://localhost:1337",
     prefix: "/api",
     version: "v4",
     cookie: {},
     cookieName: "strapi_jwt",
-    auth: { populate: ["picture", "categories", "achivs"] },
+    auth: {
+      populate: [
+        "avatar",
+        "categories",
+        "achievements",
+        "friends",
+        "tel",
+        "fullname",
+      ],
+    },
   },
   image: {
     strapi: {
